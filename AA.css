@@ -1,0 +1,200 @@
+/* Base Resets & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #2E1065; /* Deep purple text */
+    background-color: #FAF5FF; /* Soft lavender background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Color Modifier Utilities */
+.accent-text {
+    color: #7C3AED;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #7C3AED, #C084FC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sticky Navigation Layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #4C1D95;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: #C084FC;
+}
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Single Picture Layout Grid */
+.showcase-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split down the middle */
+    gap: 4rem;
+    padding: 4rem 10%;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Left Column: Image Box Configuration */
+.image-wrapper {
+    width: 100%;
+    max-width: 450px; /* Keeps image sized compactly */
+    height: 550px; /* Tall, premium vertical appearance */
+    justify-self: center;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.12);
+    border: 4px solid #fff;
+    background-color: #EDE9FE;
+}
+.showcase-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Centers picture perfectly without distortion */
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+.image-wrapper:hover .showcase-photo {
+    transform: scale(1.03);
+}
+
+/* Right Column: Profile Presentation Box */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.subtitle {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #A78BFA;
+    margin-bottom: 0.5rem;
+}
+.content-wrapper h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+.content-wrapper p {
+    font-size: 1.1rem;
+    color: #5B21B6;
+    margin-bottom: 2.5rem;
+}
+
+/* Call to Action Controls */
+.action-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.cta-btn {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 1rem 2.5rem;
+    background: #7C3AED;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    transition: background 0.2s, transform 0.2s;
+}
+.cta-btn:hover {
+    background: #6D28D9;
+    transform: translateY(-2px);
+}
+.email-subtext {
+    font-size: 0.9rem !important;
+    color: #7C3AED !important;
+}
+
+/* Simple Compact Footer */
+footer {
+    text-align: center;
+    padding: 2rem 10%;
+    background: #1E1B4B; /* Midnight dark purple-blue */
+    color: #A78BFA;
+    font-size: 0.9rem;
+}
+
+/* Mobile Breakpoint Tweaks (768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 2rem 0;
+        box-shadow: 0 10px 20px rgba(124, 58, 237, 0.05);
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .showcase-container {
+        grid-template-columns: 1fr; /* Stacks image on top of text */
+        gap: 2.5rem;
+        padding: 2rem 5%;
+        text-align: center;
+    }
+    .image-wrapper {
+        height: 380px; /* Reduced box height for smaller mobile screens */
+    }
+    .content-wrapper h1 {
+        font-size: 2.2rem;
+    }
+    .cta-btn {
+        align-self: center;
+    }
+}
